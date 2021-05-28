@@ -24,20 +24,20 @@ class AddCardViewModel {
     }
     
     func validateData() -> Result<Bool, AlertError> {
-        guard !cardDetails.firstName.isEmpty && !cardDetails.lastName.isEmpty else {
+        guard !cardDetails.lastName.isEmpty else {
             return .failure(AlertError(title: ErrorMessage.invalidName.rawValue, message: "Please enter your full name", buttonTitle: "OK"))
         }
         
-        guard !cardDetails.number.isEmpty && cardDetails.number.count == 16 else {
+        guard cardDetails.number.count == 16 else {
             return .failure(AlertError(title: ErrorMessage.invalidNumber.rawValue, message: "Please enter a valid card number", buttonTitle: "OK"))
         }
         
         let expirySplit = cardDetails.expiryDate.components(separatedBy: "/")
-        guard !cardDetails.expiryDate.isEmpty && cardDetails.expiryDate.contains("/") && expirySplit[0].count <= 2 && expirySplit[1].count == 4 && expirySplit.count == 2 else {
+        guard cardDetails.expiryDate.contains("/") && expirySplit[0].count <= 2 && expirySplit[1].count == 4 && expirySplit.count == 2 else {
             return .failure(AlertError(title: ErrorMessage.invalidExpiry.rawValue, message: "Please enter a valid date in the MM/YYYY format including the forward slash", buttonTitle: "OK"))
         }
         
-        guard !cardDetails.cvvCode.isEmpty && cardDetails.cvvCode.count == 3 else {
+        guard cardDetails.cvvCode.count == 3 else {
             return .failure(AlertError(title: ErrorMessage.invalidCVV.rawValue, message: "Please enter a valid 3 digit CVV number that can be found on the back of your card", buttonTitle: "OK"))
         }
         return .success(true)

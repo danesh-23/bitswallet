@@ -100,7 +100,7 @@ class AddCardVC: UIViewController {
     }
     
     @objc func addNewCard() {
-        guard let cardHolder = cardHolderField.text, let number = cardNumber.text, let expiry = expiryDate.text, let cvv = cvvNumber.text else { showAlert(title: "Empty Fields", message: "Please fill iin all fields", buttonTitle: "OK", completion: nil); return }
+        guard let cardHolder = cardHolderField.text, let number = cardNumber.text, let expiry = expiryDate.text, let cvv = cvvNumber.text, !cardHolder.isEmpty, !number.isEmpty, !expiry.isEmpty, !cvv.isEmpty else { showAlert(title: "Empty Fields", message: "Please fill in all fields", buttonTitle: "OK", completion: nil); return }
         addCardVM = AddCardViewModel(name: cardHolder, number: number, expiry: expiry, cvv: cvv)
         switch addCardVM.validateData() {
         case .success(_):
