@@ -20,6 +20,7 @@ extension UIViewController {
     
     func showAlert(title: String, message: String, buttonTitle: String, completion: ((UIAlertAction) -> Void)?) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.view.accessibilityIdentifier = "alert"
         let actionButton = UIAlertAction(title: buttonTitle, style: .default, handler: completion)
         alertVC.addAction(actionButton)
         self.present(alertVC, animated: true, completion: nil)
