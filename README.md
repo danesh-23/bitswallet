@@ -6,7 +6,7 @@
 ## Steps to run this project
 
 ## 1. Copy and paste the command below in your terminal.
-`git clone https://github.com/danesh-23/bitswallet.git!`
+`git clone https://github.com/danesh-23/bitswallet.git`
 
 ## 2. Open the project and click Run. Thats it :) 
 
