@@ -100,7 +100,7 @@ class AddCardVC: UIViewController {
     }
     
     @objc func addNewCard() {
-        addCardVM = AddCardViewModel(name: cardHolderField.text!, number: cardNumber.text!, expiry: expiryDate.text!, cvv: cvvNumber.text!)
+        addCardVM = AddCardViewModel(name: cardHolderField.text ?? "", number: cardNumber.text ?? "", expiry: expiryDate.text ?? "", cvv: cvvNumber.text ?? "")
         switch addCardVM.validateData() {
         case .success(_):
             delegate?.addNewCard(card: addCardVM)
