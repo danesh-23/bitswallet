@@ -12,7 +12,7 @@ class AddCardViewModel {
     
     init(name: String, number: String, expiry: String, cvv: String) {
         let name = name.components(separatedBy: " ")
-        cardDetails = CardDetails(number: number, firstName: name[0], lastName: name[1], expiryDate: expiry, cvvCode: cvv)
+        cardDetails = CardDetails(number: number, firstName: name[0], lastName: name.count == 1 ? "" : name[1], expiryDate: expiry, cvvCode: cvv)
     }
     
     init() {
