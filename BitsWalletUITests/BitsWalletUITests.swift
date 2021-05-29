@@ -7,7 +7,6 @@
 
 import XCTest
 
-
 class BitsWalletUITests: XCTestCase {
     
     var app: XCUIApplication!
@@ -154,6 +153,19 @@ class BitsWalletUITests: XCTestCase {
         XCTAssertTrue((cardHolder.value as! String) == cardHolderNameTemplate)
 
         XCTAssertTrue((expiryDate.value as! String).contains("/"))
+    }
+    
+    func testAllEmptyFieldsInAddCardView() {
+        let addBarButtonItem = app.navigationBars.buttons["addBarButtonItem"]
+        addBarButtonItem.tap()
+        
+        let doneNavButton = app.navigationBars.buttons["doneBarButtonItem"]
+        
+        doneNavButton.tap()
+        
+        let alertQuery = app.alerts["alert"].scrollViews.otherElements
+        XCTAssertTrue(alertQuery.staticTexts["Invalid Full Name"].exists)
+        XCTAssertTrue(alertQuery.staticTexts["Please enter your full name"].exists)
     }
     
     func testInvalidNameInAddCardView() {

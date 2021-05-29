@@ -200,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				1A02C3C3265F5D6A003EC6AC /* BitsWalletTests.swift */,
-				1A02C3C5265F5D6A003EC6AC /* Info.plist */,
 				1A02C3D726603A23003EC6AC /* BitsWalletTestsAddCardVM.swift */,
+				1A02C3C5265F5D6A003EC6AC /* Info.plist */,
 			);
 			path = BitsWalletTests;
 			sourceTree = "<group>";
